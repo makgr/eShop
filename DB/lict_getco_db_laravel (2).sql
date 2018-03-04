@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2018 at 07:35 AM
+-- Generation Time: Mar 04, 2018 at 08:11 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -101,9 +101,16 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `product_image`, `product_details`, `product_category`, `product_stock_in`, `product_status`, `created_at`, `updated_at`) VALUES
-(3, 'Samsung Galaxy s8', '650000.00', 'uploads/1519711202.jpeg', 'Samsung Galaxy s8 details', 1, 2, 1, '2018-02-27 12:00:02', '2018-02-27 12:00:02'),
-(4, 'Samsung Galaxy s8', '650000.00', '', 'Samsung Galaxy s8 details', 1, 2, 1, '2018-02-27 12:29:03', '2018-02-27 12:29:03'),
-(5, 'Test product', '2000.00', '', 'tes', 1, 2, 1, '2018-02-27 12:32:18', '2018-02-27 12:32:18');
+(3, 'Samsung Galaxy s8', '650000.00', '1520147284.jpeg', 'Samsung Galaxy s8 details', 1, 2, 1, '2018-02-27 12:00:02', '2018-02-27 12:00:02'),
+(5, 'Test product', '20000.00', '1520143336.jpeg', 'Test', 3, 2, 1, '2018-03-04 12:02:16', '2018-03-04 12:02:16'),
+(6, 'iMac 3', '1250000.00', '1520143447.jpeg', 'Tecst iMac 3 details', 1, 2, 0, '2018-03-04 12:04:07', '2018-03-04 12:04:07'),
+(7, 'iMac 4', '1250000.00', '1520143463.jpeg', 'Tecst iMac 4 details', 1, 2, 0, '2018-03-04 12:04:23', '2018-03-04 12:04:23'),
+(8, 'iMac 5', '1250000.00', '1520143474.jpeg', 'Tecst iMac 4 details', 1, 2, 1, '2018-03-04 12:04:34', '2018-03-04 12:04:34'),
+(9, 'iMac 6', '1250000.00', '1520143483.jpeg', 'Tecst iMac 4 details', 1, 2, 1, '2018-03-04 12:04:43', '2018-03-04 12:04:43'),
+(10, 'iMac 7', '1250000.00', '1520143489.jpeg', 'Tecst iMac 4 details', 1, 2, 1, '2018-03-04 12:04:49', '2018-03-04 12:04:49'),
+(11, 'iMac 8', '1250000.00', '1520143493.jpeg', 'Tecst iMac 4 details', 1, 2, 1, '2018-03-04 12:04:53', '2018-03-04 12:04:53'),
+(12, 'iMac 9', '1250000.00', '1520143499.jpeg', 'Tecst iMac 4 details', 1, 2, 1, '2018-03-04 12:04:59', '2018-03-04 12:04:59'),
+(13, 'iMac 10', '1250000.00', '1520143504.jpeg', 'Tecst iMac 4 details', 1, 2, 1, '2018-03-04 12:05:04', '2018-03-04 12:05:04');
 
 -- --------------------------------------------------------
 
@@ -205,7 +212,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `roles`

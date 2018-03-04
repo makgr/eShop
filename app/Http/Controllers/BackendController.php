@@ -141,44 +141,35 @@ class BackendController extends Controller
         // ]);
 
 
-    // if($request->hasFile('product_image')) {
+        if ($request->hasFile('product_image')) {
+                $image = $request->file('product_image');
 
-    //     $image = $request->file('product_image');
-    //     $filename = time().'.'.$image->getClientOriginalExtension();
-    //     $destinationPath = public_path('/uploads');
-    //     $image->move($destinationPath, $filename);
+                $name = time().'.'.$image->getClientOriginalExtension();
 
-    //     $product_image = "uploads/".$filename;
-    // }
+               
+
+                $img = Image::make($request->file('product_image'));
+                //$img->resize(100, 100);
+
+                 // resize the image to a width of 300 and constrain aspect ratio (auto height)
+                $img->resize(100, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+
+                $img->save('uploads/thumbs/'.$name, 80);
 
 
- if($request->hasFile('product_image')) {
+                $destinationPath = public_path('/uploads');
+                $image->move($destinationPath, $name);
 
-    $image_org = $request->file('product_image');
 
-    $image = Image::make($request->file('product_image'));
-    $path = public_path('uploads')."/";
-    $filename = time().'.'.$image_org->getClientOriginalExtension();
-
-    // encode image to png
-    $image->encode('png');
-    // save original
-    $image->save($path.$filename);
-    //resize
-    //$image->resize(300,200);
-    // resize the image to a width of 300 and constrain aspect ratio (auto height)
-    $image->resize(300, null, function ($constraint) {
-        $constraint->aspectRatio();
-    });
+                $product_image = $name;
 
 
 
-    $path_thumb = public_path('uploads')."/thumbs/";
-    // save resized
-    $image->save($path_thumb.$filename);
 
-    $product_image = $filename;
-}
+                //$this->save();
+            }
 
 
 
@@ -250,6 +241,7 @@ class BackendController extends Controller
      public function product_delete($product_id)
     {
         $product_select = DB::table("products")->where('product_id', $product_id)->first();
+
         DB::table("products")->where('product_id', $product_id)->delete();
 
         if($product_select->product_image !="")
